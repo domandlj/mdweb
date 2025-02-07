@@ -9,13 +9,19 @@ use crate::md_utils::process_markdown_file;
 #[command(name = "md_to_html_converter")]
 #[command(about = "Converts a folder of Markdown files to HTML")]
 struct Args {
+    ///Title of website
+    #[arg(short, long, value_name = "TITLE")]
+    title: String,
+    
     /// Path to the input folder containing Markdown files
     #[arg(short, long, value_name = "INPUT_FOLDER")]
     input: String,
 
     /// Path to the output folder where HTML files will be saved
     #[arg(short, long, value_name = "OUTPUT_FOLDER")]
-    output: String,
+    output: String
+
+
 }
 
 
@@ -34,7 +40,7 @@ pub fn cli() {
 
     // Process each Markdown file
     for md_file in &md_files {
-        process_markdown_file(md_file, Path::new(&args.output));
+        process_markdown_file(md_file, Path::new(&args.output), String::from(&args.title));
     }
 
     println!(

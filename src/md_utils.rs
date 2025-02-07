@@ -2,7 +2,7 @@ use pulldown_cmark::{Parser as MdParser, Options, html, Event, Tag,CowStr , Code
 use std::fs;
 use std::path::Path;
 
-fn markdown_to_html(markdown: &str) -> String {
+fn markdown_to_html(markdown: &str, title: String) -> String {
     let options = Options::ENABLE_TABLES; // Enable table support
 
     let parser = MdParser::new_ext(markdown, options);
@@ -45,19 +45,19 @@ fn markdown_to_html(markdown: &str) -> String {
     // Render the modified events to HTML
     html::push_html(&mut html_output, events.into_iter());
 
-    html_template(html_output)
+    html_template(html_output, title)
 }
 
 
 // Wrap the HTML content in a basic HTML template with KaTeX support
-fn html_template(html_output: String) -> String {
+fn html_template(html_output: String, title: String) -> String {
     format!(
         r#"<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{}</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -68,16 +68,16 @@ fn html_template(html_output: String) -> String {
         onload="renderMathInElement(document.body);"></script>
 </body>
 </html>"#,
-        html_output
+        title, html_output
     )
 
 }
 
-pub fn process_markdown_file(input_path: &Path, output_dir: &Path) {
+pub fn process_markdown_file(input_path: &Path, output_dir: &Path, title: String) {
     let markdown_content = fs::read_to_string(input_path).expect("Failed to read Markdown file");
 
     // Convert Markdown to HTML
-    let html_content = markdown_to_html(&markdown_content);
+    let html_content = markdown_to_html(&markdown_content, title);
 
     // Create output file path
     let output_filename = input_path
