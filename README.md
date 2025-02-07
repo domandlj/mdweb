@@ -1,7 +1,17 @@
 # MDWEB
 
 MDWEB is a Rust command line tool to convet markdown files `.md` into an a static `.html` websites.
-
+```
+ _________________________________________
+< Feed me markdown, i will make it HTML! >
+ -----------------------------------------
+        \
+         \
+            _~^~^~_
+        \) /  o o  \ (/
+          '_   -   _'
+          / '-----' \
+```
 # Usage
 
 Place your `.md` files into a folder and execute `mdewb` with
