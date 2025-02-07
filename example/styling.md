@@ -1,3 +1,9 @@
+# Styling
+
+[*⇐ Go back 🦀*](index.md)
+
+`styles.css`
+```css
 h1, h2, h3 {
   color: #ffffff;
 }
@@ -47,3 +53,4 @@ blockquote {
   color: #b0b0b0;
   margin-left: 0;
 }
+```
