@@ -42,3 +42,6 @@ You can add custom HTML tags inside your `.md` files wrapping them with
 \`\`\`script  
 (your embbeded code) 
 \`\`\`
+
+# Example
+[Link to example](https://domandlj.github.io/mdweb/)
