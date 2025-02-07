@@ -1,49 +1,44 @@
 # MDWEB
 
-This is a Rust CLI tool to convet markdown files `.md` into an a static website.
+MDWEB is a Rust command line tool to convet markdown files `.md` into an a static `.html` websites.
 
+# Usage
 
+Place your `.md` files into a folder and execute `mdewb` with
 
-![image](https://media1.tenor.com/m/djaLJiqAxzIAAAAd/rust-lang-ferris.gif) 
+```bash
+Usage: mdweb --title <TITLE> --input <INPUT_FOLDER> --output <OUTPUT_FOLDER>
 
-This is a **test** Markdown file to check if your generator works.
-
-- It supports **bold text**.
-- It supports *italic text*.
-- It supports lists.
-- It supports `inline code`.
-
-
-[Link](two.md)
-Here's a code block:
-
-```rust
-fn main() {
-    println!("Hello, world!");
-}
+Options:
+  -t, --title <TITLE>           Title of website
+  -i, --input <INPUT_FOLDER>    Path to the input folder containing Markdown files
+  -o, --output <OUTPUT_FOLDER>  Path to the output folder where HTML files will be saved
+  -h, --help                    Print help
 ```
-# Latex support
 
-This is an inline math expression: \\(E = mc^2\\).
-
-This is a display math expression:
-
-$$
-\int_a^b f(x)dx
-$$
-
-# Table
-| Name  | Age | City     |
-|-------|-----|----------|
-| Juan  | 27  | Córdoba  |
-| Alice | 25  | New York |
-| Bob   | 28  | London   |
-
-# Embeddings
-```script
-<iframe src="https://www.lexaloffle.com/bbs/widget.php?pid=super_world_of_goo" allowfullscreen width="621" height="650" style="border:none; overflow:hidden"></iframe>
+# Building
+Assuming you have `rust` and `cargo`.
+```bash
+$ cargo build --release    
 ```
+
+# Installation
+```bash
+$ cargo install --path .
+```
+
+# Hyperlinks.
+Suppose you have `A.md` and `B.md`, you can make a hyperlink from A to B with `[link to B](B.md)` inside A. This will reference B's HTML when compiled.
+
+# Latex
+It has support for writing latex equations.
 
 # Styling
+Save a `styles.css` file into your markdown website folder.
 
-Save a `styles.css` file into your markdown website, like [this](styling.md).
+# Embeddings
+You can add custom HTML tags inside your `.md` files wrapping them with 
+
+\`\`\`script  
+(your embbeded code) 
+\`\`\`
