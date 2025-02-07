@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>MDWEB</h1>
+<p>This is a Rust CLI tool to convet markdown files <code>.md</code> into an a static website.</p>
+<p><img src="https://media1.tenor.com/m/djaLJiqAxzIAAAAd/rust-lang-ferris.gif" alt="image" /> </p>
+<p>This is a <strong>test</strong> Markdown file to check if your generator works.</p>
+<ul>
+<li>It supports <strong>bold text</strong>.</li>
+<li>It supports <em>italic text</em>.</li>
+<li>It supports lists.</li>
+<li>It supports <code>inline code</code>.</li>
+</ul>
+<p><a href="two.html">Link</a>
+Here's a code block:</p>
+<pre><code class="language-rust">fn main() {
+    println!(&quot;Hello, world!&quot;);
+}
+</code></pre>
+<h1>Latex support</h1>
+<p>This is an inline math expression: \(E = mc^2\).</p>
+<p>This is a display math expression:</p>
+<p>$$
+\int_a^b f(x)dx
+$$</p>
+<h1>Table</h1>
+<table><thead><tr><th>Name</th><th>Age</th><th>City</th></tr></thead><tbody>
+<tr><td>Juan</td><td>27</td><td>Córdoba</td></tr>
+<tr><td>Alice</td><td>25</td><td>New York</td></tr>
+<tr><td>Bob</td><td>28</td><td>London</td></tr>
+</tbody></table>
+<h1>Embeddings</h1>
+<div><iframe src="https://www.lexaloffle.com/bbs/widget.php?pid=super_world_of_goo" allowfullscreen width="621" height="650" style="border:none; overflow:hidden"></iframe>
+</div>
+<h1>Styling</h1>
+<p>Save a <code>styles.css</code> file into your markdown website, like <a href="styling.html">this</a>.</p>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body);"></script>
+</body>
+</html>
